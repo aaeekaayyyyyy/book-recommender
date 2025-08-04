@@ -1,7 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
+
+import streamlit as st
+
+OPENAI_KEY = st.secrets["OPENAI_API_KEY"]
+HUGGINGFACE_KEY = st.secrets["HUGGINGFACEHUB_API_KEY"]
+
 
 import os
 
@@ -14,7 +20,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_chroma import Chroma
 
-load_dotenv()
+#load_dotenv()
 
 # Load your books CSV
 books = pd.read_csv("books_with_emotions.csv")
