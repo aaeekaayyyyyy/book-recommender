@@ -3,6 +3,12 @@ import pandas as pd
 import numpy as np
 from dotenv import load_dotenv
 
+import os
+
+openai_key = os.getenv('OPENAI_API_KEY')
+hf_key = os.getenv('HUGGINGFACE_API_KEY')
+
+
 from langchain_community.document_loaders import TextLoader
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import CharacterTextSplitter
