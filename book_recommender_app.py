@@ -39,7 +39,7 @@ books["large_thumbnail"] = np.where(
 raw_documents = TextLoader("tagged_description.txt").load()
 text_splitter = CharacterTextSplitter(separator="\n", chunk_size=0.0000000000000000000000000001, chunk_overlap=0)
 documents = text_splitter.split_documents(raw_documents)
-db_books = Chroma.from_documents(documents, OpenAIEmbeddings())
+db_books = Chroma.from_documents(documents, OpenAIEmbeddings(), persist_directory="./chroma_data", collection_name="books")
 
 def retrieve_semantic_recommendations(query, category=None, tone=None, initial_top_k=50, final_top_k=16):
     recs = db_books.similarity_search(query, k=initial_top_k)
