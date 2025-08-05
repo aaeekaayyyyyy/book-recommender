@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 #from dotenv import load_dotenv
 
+import sys
+__import__("pysqlite3")
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 import streamlit as st
 
 OPENAI_KEY = st.secrets["OPENAI_API_KEY"]
